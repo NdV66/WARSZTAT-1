@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;
+}
+header {
+    height: 35px;
+    background-color: black;
+}
+h1 {
+    font-size: 35px;
+    font-weight: bold;
+    text-align: center;
+}
+.clearfix::before, .clearfix::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+.container {
+    position: relative;
+    width: 1100px;
+    margin: 0 auto;
+}
+.color {
+    color: #27c7ab;
+}
+.logo {
+    float: left;
+    color: white;
+}
+.menu> li {
+    float: right;
+    color: white;
+    list-style: none;
+    margin-left: 50px;
+}
+.reel {
+    height: 400px;
+    background: -moz-linear-gradient(270deg, rgba(231, 230, 240, 0.15) 0%, rgba(231, 230, 240, 0.42) 32%, rgba(192, 192, 192, 1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(231, 230, 240, 0.15)), color-stop(32%, rgba(231, 230, 240, 0.42)), color-stop(100%, rgba(192, 192, 192, 1)));
+    background: -webkit-linear-gradient(270deg, rgba(231, 230, 240, 0.15) 0%, rgba(231, 230, 240, 0.42) 32%, rgba(192, 192, 192, 1) 100%);
+    background: -o-linear-gradient(270deg, rgba(231, 230, 240, 0.15) 0%, rgba(231, 230, 240, 0.42) 32%, rgba(192, 192, 192, 1) 100%);
+    background: -ms-linear-gradient(270deg, rgba(231, 230, 240, 0.15) 0%, rgba(231, 230, 240, 0.42) 32%, rgba(192, 192, 192, 1) 100%);
+    background: linear-gradient(180deg, rgba(231, 230, 240, 0.15) 0%, rgba(231, 230, 240, 0.42) 32%, rgba(192, 192, 192, 1) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#E7E6F0', endColorstr='#c0c0c0', GradientType=0);
+}
+.reel-prev-click {
+    font-size: 80px;
+    margin-top: 150px;
+    position: absolute;
+}
+.reel-next-click {
+    font-size: 80px;
+    margin-top: 150px;
+    position: absolute;
+}
+.reel-next {
+    float: right;
+    margin-top: -400px;
+    margin-right: 40px;
+}
+.reel-chair {
+    padding-top: 50px;
+}
+.reel-content {
+    position: relative;
+    float: right;
+    margin-top: -300px;
+    margin-right: 180px;
+}
+.reel-content-info {
+    width: 440px;
+    text-align: center;
+    margin-top: 30px;
+}
+.reel-content-button {
+    width: 200px;
+    position: absolute;
+    background-color: #27c7ab;
+    color: white;
+    padding: 15px 15px 15px 15px;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 10px;
+    margin-left: 100px;
+    margin-top: 20px;
+}
+#top {
+    padding-top: 8px;
+}
