@@ -205,6 +205,7 @@ ol.menu .menu-toggle:hover ul> .item:first-child {
     width: 140px;
     margin-top: -15px;
     margin-left: 25px;
+		display: block;
 }
 .info-underline-y {
     position: absolute;
@@ -212,6 +213,7 @@ ol.menu .menu-toggle:hover ul> .item:first-child {
     width: 135px;
     margin-top: -15px;
     margin-left: 30px;
+		display: block;
 }
 .info-underline-u {
     position: absolute;
@@ -379,6 +381,7 @@ ol.menu .menu-toggle:hover ul> .item:first-child {
 }
 .cost-up {
     position: absolute;
+		display: block;
     font-size: 15px;
     margin: -45px 0 0 55px;
     font-weight: 900;
