@@ -567,7 +567,7 @@ select {
     appearance: none;
     padding: 2px 2px 2px 2px;
     border: none;
-    background: transparent url("http://i.imgur.com/c1TkjwV.png") no-repeat 240px center;
+    background: transparent url(../images/dropdown.png) no-repeat 240px center;
 }
 .sum_label {
     display: inline-block;
