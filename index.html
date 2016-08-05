@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SIT ON CHAIR</title>
     <link rel="stylesheet" href="./css/style.css">
+
 </head>
+
 <body>
     <header>
         <div class="container" id="top">
             <a href="#">
-              <div class="logo">SIT <span class="color">ON</span> CHAIR</div>
+                <div class="logo">SIT <span class="color">ON</span> CHAIR</div>
             </a>
             <nav class="navigation">
                 <ol class="menu">
@@ -36,25 +39,55 @@
         <div class="container">
             <div class="reel-prev">
               <a href="#">
-                <span class="reel-prev-click"><</span>
+                  <span class="reel-prev-click" onclick="plusDivs(-1)"><</span>
               </a>
             </div>
-            <div class="reel-chair">
-                <img height="400" src="./images/black_chair.png" />
+            <div class="reel-pyk">
+                <div class="reel-chair">
+                    <img height="400" src="./images/black_chair.png" />
+                </div>
+                <div class="reel-content">
+                    <h1>SIT <span class="color">ON</span> OUR <span class="color">CHAIR</span></h1>
+                    <p class="reel-content-info">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+                    <a href="#">
+                        <div class="reel-content-button">ZOBACZ WIĘCEJ</div>
+                    </a>
+                </div>
             </div>
-            <div class="reel-content">
-                <h1>SIT <span class="color">ON</span> OUR <span class="color">CHAIR</span></h1>
-                <p class="reel-content-info">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
-                <a href="#">
-                    <div class="reel-content-button">ZOBACZ WIĘCEJ</div>
-                </a>
+            <div class="reel-pyk">
+                <div class="reel-chair">
+                    <img height="400" src="./images/orange.png" />
+                </div>
+                <div class="reel-content">
+                    <h1>SIT <span class="color">ON</span> OUR <span class="color">CHAIR</span></h1>
+                    <p class="reel-content-info">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+                    <a href="#">
+                        <div class="reel-content-button">ZOBACZ WIĘCEJ</div>
+                    </a>
+                </div>
+            </div>
+            <div class="reel-pyk">
+                <div class="reel-chair">
+                    <img height="400" src="./images/red.png" />
+                </div>
+                <div class="reel-content">
+                    <h1>SIT <span class="color">ON</span> OUR <span class="color">CHAIR</span></h1>
+                    <p class="reel-content-info">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+                    <a href="#">
+                        <div class="reel-content-button">ZOBACZ WIĘCEJ</div>
+                    </a>
+                </div>
             </div>
             <div class="reel-next">
-              <a href="#">
-                <span class="reel-next-click">></span>
-              </a>
+                <a href="#">
+                    <span class="reel-next-click" onclick="plusDivs(1)">></span>
+                </a>
             </div>
         </div>
     </section>
@@ -172,6 +205,75 @@
             </div>
         </div>
     </section>
+    <section class="application ">
+        <div class="container">
+            <section class="choice_part inline">
+                <div class="comp">
+                    <h3>SKOMPONUJ SWOJE KRZESŁO</h3>
+                    <span class="green_bell"></span>
+                </div>
+
+                <div class="form">
+                    <select class="drop_down_list" name="memoryItem" onChange="calculatePrice()" id="itemType">
+                        <option value="0" class="list_label">Wybierz rodzaj</option>
+                        <option value="300" class="list_label">Clair</option>
+                        <option value="450" class="list_label">Margerita</option>
+                        <option value="410" class="list_label">Selena</option>
+                    </select>
+                    <select class="drop_down_list" name="memoryItem" onChange="calculatePrice()" id="itemColor">
+                        <option value="0" class="list_label">Wybierz kolor</option>
+                        <option value="50" class="list_label">Czerwony</option>
+                        <option value="60" class="list_label">Czarny</option>
+                        <option value="40" class="list_label">Pomarańczowy</option>
+                    </select>
+                    <select class="drop_down_list" name="memoryItem" onChange="calculatePrice()" id="itemCloth">
+                        <option value="0" class="list_label">Wybierz materiał</option>
+                        <option value="119" class="list_label">Tkanina</option>
+                        <option value="179" class="list_label">Skóra</option>
+                    </select>
+
+
+                    <div class="checkbox check-box">
+                        <input type="checkbox" id="transport" value="200" onChange="calculatePrice()">
+                        <label for="transport">Transport</label>
+                    </div>
+                    <!--<div class="checkbox"></div>-->
+                    <!--<span class="list_label inline_text">Transport</span>-->
+                </div>
+            </section>
+
+            <section class="image_part inline">
+                <img src="images/red_chair.png">
+            </section>
+
+            <section class="summary_part inline">
+                <div class="align_right">
+                    <h3>PODSUMOWANIE</h3>
+                    <span class="green_bell"></span>
+                </div>
+
+                <div class="summary_panel">
+                    <div class="panel_left">
+                        <h4 class="title">Twój fotel</h4>
+                        <span class="type"></span>
+                        <span class="colork"></span>
+                        <span class="pattern"></span>
+                        <span class="transp"></span>
+                    </div>
+                    <div class="panel_right">
+                        <h4 class="title value"></h4>
+                        <span class="typevalue"></span>
+                        <span class="colorkvalue"></span>
+                        <span class="patternvalue"></span>
+                        <span class="transpvalue"></span>
+                    </div>
+                    <div class="sum_label">SUMA</div>
+                    <div class="sum"><strong class="calcItems"></strong></div>
+                </div>
+                <a href="" class="green_button">Zamawiam</a>
+            </section>
+        </div>
+    </section>
     <section class="contact-form">
         <div class="container">
             <div class="price-list-title">
@@ -217,5 +319,7 @@
             <div class="footer-brand-name">SIT <b>ON</b> CHAIR</div>
         </div>
     </footer>
+    <script src="./js/pyk.js"></script>
 </body>
+
 </html>
