@@ -27,6 +27,8 @@ function calculatePrice(myform) {
     var itemType = elt1.options[elt1.selectedIndex].value;
     var itemTypeName = elt1.options[elt1.selectedIndex].innerText;
 
+    var itemImage = elt1.selectedIndex;
+
     var elt2 = document.getElementById("itemColor");
     var itemColor = elt2.options[elt2.selectedIndex].value;
     var itemColorName = elt2.options[elt2.selectedIndex].innerText;
@@ -67,7 +69,16 @@ function calculatePrice(myform) {
     }
     var transpParse = parseInt(transpValue.innerText);
     var total = (itemType + itemColor + itemCloth + transpParse) + ' zł';
-
+    var imgClass = document.querySelector(".image_part");
+    if (itemImage === 1) {
+      imgClass.innerHTML = '<img class="calcImg" src="images/red_chair.png">';
+    } else if(itemImage === 2) {
+      imgClass.innerHTML = '<img class="calcImg" src="images/black_chair.png">';
+    } else if (itemImage === 3) {
+      imgClass.innerHTML = '<img class="calcImg" src="images/orange.png">';
+    } else {
+      imgClass.innerHTML = ' ';
+    }
 
     sume.innerText = total;
     if (itemTypeName == "Wybierz rodzaj") {

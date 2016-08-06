@@ -195,16 +195,36 @@ ol.menu .menu-toggle:hover ul> .item:first-child {
     margin-top: 15px;
 }
 .info-two:hover> .info-bar {
-    display: none;
+    opacity: 0;
+    -webkit-transition: opacity .35s ease-in-out;
+    -moz-transition: opactiy .35s ease-in-out;
+    -ms-transition: opacity .35s ease-in-out;
+    -o-transition: opacity .35s ease-in-out;
+    transition: opacity .35s ease-in-out;
 }
 .info-two:hover> .info-underline-y {
-    display: none;
+    opacity: 0;
+    -webkit-transition: opacity .35s ease-in-out;
+    -moz-transition: opactiy .35s ease-in-out;
+    -ms-transition: opacity .35s ease-in-out;
+    -o-transition: opacity .35s ease-in-out;
+    transition: opacity .35s ease-in-out;
 }
 .info-one:hover> .info-bar {
-    display: none;
+    opacity: 0;
+    -webkit-transition: opacity .35s ease-in-out;
+    -moz-transition: opactiy .35s ease-in-out;
+    -ms-transition: opacity .35s ease-in-out;
+    -o-transition: opacity .35s ease-in-out;
+    transition: opacity .35s ease-in-out;
 }
 .info-one:hover> .info-underline-t {
-    display: none;
+    opacity: 0;
+    -webkit-transition: opacity .35s ease-in-out;
+    -moz-transition: opactiy .35s ease-in-out;
+    -ms-transition: opacity .35s ease-in-out;
+    -o-transition: opacity .35s ease-in-out;
+    transition: opacity .35s ease-in-out;
 }
 .info-underline-t {
     position: absolute;
@@ -276,7 +296,7 @@ ol.menu .menu-toggle:hover ul> .item:first-child {
     height: 500px;
     display: inline-block;
     background-color: #27c7ab;
-    margin: 30px 20px 20px 0;
+    margin: 45px 20px 20px 0;
     border: 2px solid #27c7ab;
 }
 .price-list .nag:last-child {
@@ -410,6 +430,10 @@ ol.menu .menu-toggle:hover ul> .item:first-child {
 }
 .application header.align_right {
     text-align: right;
+}
+.calcImg {
+  width: 264px;
+  height: 210px;
 }
 .inline {
     display: inline-block;
