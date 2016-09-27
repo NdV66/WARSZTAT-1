@@ -3,9 +3,14 @@ window.onload = function init() {
         view = {},
         controler = {};       
        
-    /*------ ------ MODEL ------ ------ */
+    /*------ ------ MODEL ------ ------ */   
     model = (function createModel(){
-        function calculatePrice(array) { //type, color, cloth, transport
+        /*
+         * Calculate a price
+         * @param {Array}  array of prices
+         * @return {Number} result
+         */
+        function calculatePrice(array) {
             var total = 0,
                 helper = 0;
             for(var i = 0; i < array.length; i++) {
@@ -17,15 +22,30 @@ window.onload = function init() {
             return total;
         }       
         
+        /*
+         * Check if < select > has an option with "Select X"
+         * @param {HTMLobject} elt 
+         * @returns {Boolean} true when yes and false when not
+         */
+        function validateChoose(elt) {
+            var patt = /Wybierz.*/g;       
+            return patt.test(elt.options[elt.selectedIndex].innerText)     ;
+        }
+        
         return {
-            calculatePrice: calculatePrice
+            calculatePrice: calculatePrice,
+            validateChoose: validateChoose
         };
     })(); 
        
     /*------ ------ VIEW ------ ------ */
     view = (function createView(){
         var slideIndex = 1;
-               
+        
+        /**
+         * Show divs
+         * @param {Integer} amount of divs
+         */
         function showDivs(amount) {
             var elements = document.getElementsByClassName("reel-pyk");
             
@@ -44,25 +64,46 @@ window.onload = function init() {
             elements[slideIndex - 1].className += " fade-in one";
         }
         
+        /**
+         * Add divs
+         * @param {Integer} number of divs
+         */
         function plusDivs(number) {
             showDivs(slideIndex += number);
         }
         
+        /**
+         * Remove all parent's children
+         * @param {HTMLobject} parent
+         */
         function removeChildren(parent) {
             while (parent.firstChild) {
                 parent.removeChild(parent.firstChild);
             }
         }
         
+        /**
+         * Add new text to the parent
+         * @param {HTMLobject} parent
+         * @param {HTMLobject} node
+         */
         function addNewText(parent, node) {
             removeChildren(parent);
             parent.appendChild(document.createTextNode(node));
         }
         
+        /**
+         * Set a total's value
+         * @param {type} total
+         */
         function setTotal(total) {             
             addNewText(document.querySelector(".calcItems"), total);
         }
         
+        /**
+         * Set transport's values
+         * @param {type} text to be set
+         */
         function setTransport(text) {
             var chksBox = document.getElementById("transport");
             
@@ -74,30 +115,23 @@ window.onload = function init() {
             addNewText(document.querySelector(".transp"), "Transport");
         }
         
-        function setContent() {
-            addOneContent(document.querySelector(".type"), document.querySelector(".typevalue"), document.getElementById("itemType"));
-            addOneContent(document.querySelector(".colork"), document.querySelector(".colorkvalue"), document.getElementById("itemColor"));
-            addOneContent(document.querySelector(".pattern"), document.querySelector(".patternvalue"), document.getElementById("itemCloth"));
-            
-            function addOneContent(left, value, elt) {
-                var patt = /Wybierz.*/g;
-                addNewText(left, elt.options[elt.selectedIndex].innerText );
-                if(patt.test(elt.options[elt.selectedIndex].innerText)) {                    
-                    addNewText(value, "-");
-                } else {
-                    addNewText(value, elt.options[elt.selectedIndex].value);
-                }
-            }
-        }
-        
+        /**
+         * Set an image
+         * @param {type} elt
+         */
         function setImage(elt) {
             var imagesUrl = ["images/red_chair.png", "images/black_chair.png", "images/orange.png"], 
                 imgClass = document.querySelector(".image_part"),
-                img = document.createElement("img");        
-                img.src = imagesUrl[elt.selectedIndex - 1];
-                img.className += " calcImg";
+                img = document.createElement("img"),
+                index = elt.selectedIndex - 1;
                 removeChildren(imgClass);
-                imgClass.appendChild(img);
+                
+                if(index > -1) {
+                    img.src = imagesUrl[index];
+                    img.className += " calcImg";                                
+                    imgClass.appendChild(img);
+                }
+                
         }
                 
         return {
@@ -105,8 +139,8 @@ window.onload = function init() {
             plusDivs: plusDivs,
             setTotal: setTotal,
             setTransport: setTransport,
-            setContent: setContent,
-            setImage: setImage
+            setImage: setImage,
+            addNewText: addNewText
         };
     })();
         
@@ -119,11 +153,41 @@ window.onload = function init() {
             chksBox = document.getElementById("transport"),
             transpValue = document.querySelector(".transpvalue");
         
+        /**
+         * Choose a transport value
+         */
         function chooseTranspValue(){
             view.setTransport();
             setAllTotal();            
         }
         
+        /**
+         * Set content in a right block
+         */
+         function setContent() {
+            addOneContent(document.querySelector(".type"), document.querySelector(".typevalue"), elt1);
+            addOneContent(document.querySelector(".colork"), document.querySelector(".colorkvalue"), elt2);
+            addOneContent(document.querySelector(".pattern"), document.querySelector(".patternvalue"), elt3);
+            
+            /**
+             * Set one content (left and right value)
+             * @param {type} left elemt in the block
+             * @param {type} value to be set
+             * @param {type} elt
+             */
+            function addOneContent(left, value, elt) {                
+                view.addNewText(left, elt.options[elt.selectedIndex].innerText);                
+                if(model.validateChoose(elt)) {                    
+                    view.addNewText(value, "-");
+                } else {
+                    view.addNewText(value, elt.options[elt.selectedIndex].value);
+                }
+            }
+        }
+        
+        /**
+         * Set total - call calculate function and set its result
+         */
         function setAllTotal() {
             total = model.calculatePrice([  elt1.options[elt1.selectedIndex].value,
                                             elt2.options[elt2.selectedIndex].value,
@@ -131,17 +195,29 @@ window.onload = function init() {
                                             transpValue.innerText]);
             view.setTotal(total);   
         }
-
+        
+        /**
+         * Set the content and the total value
+         */
         function calculatePrice() {            
-            view.setContent();
+            setContent();
             setAllTotal();
         }
         
-        function init(){    
+        /**
+         * Initial function - it makes all what is needed to work
+         */
+        function init(){   
+            /**
+             * Call functions, which have to be called on a page's start
+             */
             (function start(){
                 view.showDivs(1);
             })();
             
+            /**
+             * Bind all events
+             */
             (function bindEvents(){
                 elt1.addEventListener("change", function(){
                     calculatePrice();
